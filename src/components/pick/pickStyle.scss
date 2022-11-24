@@ -1,0 +1,160 @@
+$outer-ring-size : 170px;
+$mobile-outer-ring-size : 100px;
+
+$offset: calc($outer-ring-size - ($outer-ring-size / 2));
+$mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
+:root{
+    --outer-ring-size: 170px;
+}
+
+.PickComponent {
+
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .PickComponent-pickContainer {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .PickComponent-triangle {
+            width: 330px;
+            height: 300px;
+            // transform: scale(1.5);
+            // position: absolute;
+        }
+
+        .PickComponent-Image {
+            width: 70px;
+            height: 80px;
+        }
+
+        //,rgba(124, 124, 124, 0.562) 0 0 0 30px, rgba(113, 113, 113, 0.286) 0 0 0 70px, rgba(101, 101, 101, 0.144) 0 0 0 110px;;
+
+
+        .PickComponent-paper-outer {
+            position: absolute;
+            top: -$offset;
+            left: -$offset;
+            border-radius: 50%;
+            width: $outer-ring-size;
+            height: $outer-ring-size;
+
+            background-color: hsl(230, 89%, 65%);
+            box-shadow: inset hsl(230, 89%, 52%) 0px -6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .PickComponent-paper-inner {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                box-shadow: inset lightgrey 0px 5px;
+                border-radius: 100%;
+                width: 75%;
+                height: 75%;
+            }
+        }
+
+        .PickComponent-scissor-outer {
+            position: absolute;
+            top: -$offset;
+            right: -$offset;
+            border-radius: 50%;
+            width: $outer-ring-size;
+            height: $outer-ring-size;
+
+            background-color: hsl(40, 84%, 53%);
+            box-shadow: inset hsl(39, 89%, 40%) 0 -6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .PickComponent-scissor-inner {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                box-shadow: inset lightgrey 0px 5px;
+                border-radius: 100%;
+                width: 75%;
+                height: 75%;
+            }
+        }
+
+
+        .PickComponent-rock-outer {
+            position: absolute;
+            bottom: -$offset;
+            border-radius: 50%;
+            width: $outer-ring-size;
+            height: $outer-ring-size;
+
+            background-color: hsl(349, 70%, 56%);
+            box-shadow: inset hsl(349, 70%, 43%) 0 -6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .PickComponent-rock-inner {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                box-shadow: inset lightgrey 0px 5px;
+                border-radius: 100%;
+                width: 75%;
+                height: 75%;
+            }
+        }
+        @media (max-width: 475px) {
+
+            .PickComponent-Image{
+                width: 40px;
+                height: 40px;
+            }
+            
+            .PickComponent-triangle{
+                $outer-ring-size: 200px;
+                width: 230px;
+                height: 200px;
+            }
+
+            .PickComponent-paper-outer{
+                width: $mobile-outer-ring-size;
+                height: $mobile-outer-ring-size;
+                top: -$mobile-offset;
+                left: -$mobile-offset;
+            }
+            .PickComponent-rock-outer{
+                width: $mobile-outer-ring-size;
+                height: $mobile-outer-ring-size;
+                bottom: -$mobile-offset;
+            }
+            .PickComponent-scissor-outer{
+                width: $mobile-outer-ring-size;
+                height: $mobile-outer-ring-size;
+                top: -$mobile-offset;
+                right: -$mobile-offset;
+            }
+
+        }
+    }
+
+
+    .PickComponent-u-itemClicked {
+        cursor: pointer;
+    }
+
+    .PickComponent-u-itemClicked:hover {
+        box-shadow: inset transparent 0px 0px;
+        transform: translateY(6px);
+    }
+}
+

@@ -1,0 +1,65 @@
+@import '../colors';
+
+.ScoreComponent{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 1rem;
+    width: 50%;
+    height: 150px;
+    border: 2px solid $header-outline;
+    border-radius: 15px;
+
+    
+
+    .ScoreComponent-titleImage{
+        max-width: 25%;
+        max-height: 100%;
+    }
+
+    .ScoreComponent-scoreContainer{
+        width: 120px;
+        height: 100%;
+        border-radius: 6px;
+        background-color: white;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // align-items: center;
+        text-align: center;
+        
+
+        .ScoreComponent-name{
+            color: $dark-text;
+            text-transform: uppercase;
+            font-family: $primary-font-name;
+            font-size: .8rem;
+            font-weight: 700;
+        }
+        
+        #ScoreComponent-score{
+            font-family: $primary-font-name;
+            font-weight: 800;
+            color: $dark-text;
+            font-size: 2.5rem;
+            
+        }
+    }
+}
+
+@media (max-width: 475px) {
+    .ScoreComponent{
+        width: 90%;
+        .ScoreComponent-titleImage{
+            max-width: 50%;
+        }
+
+        .ScoreComponent-scoreContainer{
+            width: 100px;
+            height: 90%;
+        }
+    }
+}

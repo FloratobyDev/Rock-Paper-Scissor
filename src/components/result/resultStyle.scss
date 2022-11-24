@@ -1,0 +1,106 @@
+@import '../colors';
+
+$outer-ring-size : 280px;
+$mobile-outer-ring-size : 100px;
+
+$offset: calc($outer-ring-size - ($outer-ring-size / 2));
+$mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
+
+.ResultComponent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 4rem;
+    column-gap: 3rem;
+    // margin-top: 50px;
+
+    .ResultComponent-Image{
+        width: 35%;
+        height: 40%;
+    }
+
+    .ResultComponent-resultContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+       
+        gap: 2rem;
+        .ResultComponent-result{
+            text-transform: uppercase;
+            font-family: $primary-font-name;
+            color:white;
+            font-size:3.5rem;
+        }
+
+        .ResultComponent-playAgain{
+            text-transform: uppercase;
+            font-family: $primary-font-name;
+            font-weight: 600;
+            font-size: .9rem;
+            padding: .6rem 2.1rem;
+            border-radius: 9px;
+        }
+
+        .ResultComponent-playAgain:hover{
+            cursor: pointer;
+            // opacity: 80%;
+            color:red;
+        }
+        
+        .ResultComponent-playAgain:active{
+            transform: translateY(3px);
+        }
+    }
+    
+    .ResultComponent-itemContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+        
+        p{
+            font-family: $primary-font-name;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+            font-size: 1.6rem;
+        }
+        
+        .ResultComponent-temporaryCircle{
+            width: 250px;
+            height: 250px;
+            background-color: rgba(52, 52, 52, 0.4);
+            filter: blur(.5);
+            border-radius: 50%;
+        }
+
+        .ResultComponent-outer {
+            border-radius: 50%;
+            width: $outer-ring-size;
+            height: $outer-ring-size;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // box-shadow: inset hsl(230, 89%, 52%) 0px 0px 0 1000px, rgba(255, 255, 255, 0.1) 0px 0px 0 200px,hsl(230, 89%, 70%,.2) 0px 0px 0 300px,hsla(230, 99%, 70%, 0.3) 0px 0px 0 400px;
+            
+            .ResultComponent-inner {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                box-shadow: inset lightgrey 0px 5px;
+                border-radius: 100%;
+                width: 75%;
+                height: 75%;
+            }
+        }
+    }
+
+}
+

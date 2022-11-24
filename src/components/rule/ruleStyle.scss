@@ -1,0 +1,80 @@
+@import '../colors';
+
+.RuleComponent{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    // bottom: 0;
+    // right: 0;
+    z-index: -5;
+    .RuleComponent-overlay{
+    
+        position: fixed;
+        background: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 100%;
+
+        display: none;
+        align-items: center;
+        justify-content: center;
+       
+        .RuleComponent-ruleContainer{
+            background-color: white;
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+          
+            .RuleComponent-nameCloseContainer{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                .RuleComponent-ruleName{
+                    font-family: $primary-font-name;
+                    font-weight: 700;
+                    font-size: 1.8rem;
+                }
+    
+                .RuleComponent-close{
+                    cursor: pointer;
+                    max-width: 20px;
+                    max-height: 20px;
+                    // min-width: 100px;
+                    // max;
+                    // border: none;
+                    // background: transparent;
+                    // font-size: 1rem;
+                }
+            }
+    
+            .RuleComponent-ruleImage{
+
+            }
+        }
+
+    }
+
+    .RuleComponent-overlayButton{
+        cursor: pointer;
+        z-index: -1;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 2rem;
+        border-radius: 6px;
+        padding: .6rem 1.5rem;
+        background: transparent;
+        font-family: $primary-font-name;
+        color:white;
+        border: 2px solid white;
+    }
+
+    .RuleComponent-overlayButton:hover{
+        opacity: 80%;
+    }
+    .RuleComponent-overlayButton:active{
+        opacity: 80%;
+    }
+}

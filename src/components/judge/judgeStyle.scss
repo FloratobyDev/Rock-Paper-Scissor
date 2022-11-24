@@ -1,0 +1,76 @@
+@import '../colors';
+
+$outer-ring-size : 280px;
+$mobile-outer-ring-size : 100px;
+
+$offset: calc($outer-ring-size - ($outer-ring-size / 2));
+$mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
+
+.JudgeComponent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 4rem;
+    column-gap: 12rem;
+    // margin-top: 50px;
+
+    .JudgeComponent-Image{
+        width: 35%;
+        height: 40%;
+    }
+
+    .win{
+        width: 1000px;
+    }
+    
+    .JudgeComponent-itemContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+        
+        p{
+            font-family: $primary-font-name;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .JudgeComponent-temporaryCircle{
+            width: 280px;
+            height: 280px;
+            background-color: rgba(52, 52, 52, 0.4);
+            filter: blur(.5);
+            border-radius: 50%;
+        }
+
+        .JudgeComponent-outer {
+            border-radius: 50%;
+            width: $outer-ring-size;
+            height: $outer-ring-size;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // box-shadow: inset hsl(230, 89%, 52%) 0px 0px 0 1000px, rgba(255, 255, 255, 0.1) 0px 0px 0 200px,hsl(230, 89%, 70%,.2) 0px 0px 0 300px,hsla(230, 99%, 70%, 0.3) 0px 0px 0 400px;
+            
+            .JudgeComponent-inner {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                box-shadow: inset lightgrey 0px 5px;
+                border-radius: 100%;
+                width: 75%;
+                height: 75%;
+            }
+        }
+    }
+
+}
+

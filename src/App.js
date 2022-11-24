@@ -1,24 +1,59 @@
-import logo from './logo.svg';
+import { useRef, useState } from 'react';
 import './App.css';
+import PickComponent from './components/pick/PickComponent';
+import ResultComponent from './components/result/ResultComponent';
+import JudgingComponent from './components/judge/JudgingComponent';
+import { GameState } from './types/Statetype';
+import ScoreComponent from './components/score/ScoreComponent';
+import RuleComponent from './components/rule/RuleComponent';
 
 function App() {
+
+  const [state, setState] = useState(GameState.Game)
+  const scoreRef = useRef(0)
+  const itemPicked = useRef({
+    playerPicked: "",
+    enemyPicked: "",
+    result: ""
+  })
+
+  function setItemPicked(item, turnType) {
+    if (turnType === 'player') {
+      itemPicked.current.playerPicked = item;
+    }
+    else if (turnType === 'enemy') {
+      itemPicked.current.enemyPicked = item;
+    }
+    else if (turnType === 'result') {
+      itemPicked.current.result = item
+    }
+  }
+
+  function ContentSwitch() {
+    switch (state) {
+      case GameState.Game:
+        return <PickComponent setItemPicked={setItemPicked} setState={setState} />
+      case GameState.Judging:
+        return <JudgingComponent renderPicked={itemPicked} setItemPicked={setItemPicked} state={state} setState={setState} />
+      case GameState.Result:
+        return <ResultComponent scoreRef={scoreRef} itemPicked={itemPicked} setState={setState} />
+      default:
+        return null
+    }
+  }
+
+  let content = ContentSwitch();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <header className="App">
+      <RuleComponent />
+      <ScoreComponent score={scoreRef.current} />
+      {/* <JudgingComponent renderPicked={itemPicked} setItemPicked={setItemPicked} state={state} setState={setState} /> */}
+      {/* <p>Current score: {scoreRef.current}</p> */}
+      <main>
+        {content}
+      </main>
+    </header>
   );
 }
 
