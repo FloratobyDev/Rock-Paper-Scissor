@@ -1,7 +1,7 @@
 @import '../colors';
 
 $outer-ring-size : 280px;
-$mobile-outer-ring-size : 100px;
+$mobile-outer-ring-size : 150px;
 
 $offset: calc($outer-ring-size - ($outer-ring-size / 2));
 $mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
@@ -14,7 +14,7 @@ $mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
     width: 100%;
     gap: 4rem;
     column-gap: 12rem;
-    // margin-top: 50px;
+    margin-top: 50px;
 
     .JudgeComponent-Image{
         width: 35%;
@@ -71,6 +71,30 @@ $mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
             }
         }
     }
+}
 
+@media (max-width: 475px) {
+    .JudgeComponent{
+        gap: 2rem;
+
+        .JudgeComponent-itemContainer{
+            gap: 2rem;
+            flex-direction: column-reverse;
+
+            p{
+                font-size: 1.5rem;
+            }
+
+            .JudgeComponent-temporaryCircle{
+                width: 150px;
+                height:150px;
+            }
+
+            .JudgeComponent-outer{
+                width: $mobile-outer-ring-size;
+                height: $mobile-outer-ring-size;
+            }
+        }
+    }
 }
 

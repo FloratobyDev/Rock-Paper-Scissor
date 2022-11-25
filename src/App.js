@@ -48,8 +48,6 @@ function App() {
     <header className="App">
       <RuleComponent />
       <ScoreComponent score={scoreRef.current} />
-      {/* <JudgingComponent renderPicked={itemPicked} setItemPicked={setItemPicked} state={state} setState={setState} /> */}
-      {/* <p>Current score: {scoreRef.current}</p> */}
       <main>
         {content}
       </main>

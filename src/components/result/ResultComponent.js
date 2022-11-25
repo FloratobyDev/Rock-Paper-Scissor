@@ -42,14 +42,7 @@ const ResultComponent = (props) => {
                 delay: 60,
                 duration: 300,
                 easing: 'easeInOutQuart'
-                // direction: 'alternate',
-                // loop: true
             })
-
-            // resultRef.current.style.border = '2px solid white';
-            // resultRef.current.style.borderRadius = '15px';
-            // resultRef.current.style.backgroundColor = 'white';
-
         }
     }, [])
 
@@ -68,13 +61,11 @@ const ResultComponent = (props) => {
             loop: false,
         })
         playerColor.bs += ',rgba(124, 124, 124, 0.462) 0 0 0 30px, rgba(113, 113, 113, 0.200) 0 0 0 70px, rgba(101, 101, 101, 0.100) 0 0 0 110px'
-        // console.log('Won' + playerColor);
 
     }
     else if (itemPicked.result === 'You lost!') {
         handleSound('lost')
         enemyColor.bs += ',rgba(124, 124, 124, 0.162) 0 0 0 30px, rgba(113, 113, 113, 0.200) 0 0 0 70px, rgba(101, 101, 101, 0.100) 0 0 0 110px'
-        // console.log('Lost');
     }
 
     const animateItemOnLoad = event => {
@@ -88,16 +79,27 @@ const ResultComponent = (props) => {
 
     return (
         <div className='ResultComponent'>
-            <section className="ResultComponent-itemContainer">
-                <p>You Picked</p>
-                <div onLoad={animateItemOnLoad} id='ResultComponent-player' style={{ backgroundColor: playerColor.bg, boxShadow: playerColor.bs, zIndex: -1 }} className="ResultComponent-outer">
+            <div className="ResultComponent-container">
+                <section className="ResultComponent-itemContainer">
+                    <p>You</p>
+                    <div onLoad={animateItemOnLoad} id='ResultComponent-player' style={{ backgroundColor: playerColor.bg, boxShadow: playerColor.bs, zIndex: -1 }} className="ResultComponent-outer">
 
-                    <div className="ResultComponent-inner">
-                        <img src={`/images/icon-${itemPickedRef.playerPicked}.svg`} alt="scissor-icon" className="ResultComponent-Image" />
+                        <div className="ResultComponent-inner">
+                            <img src={`/images/icon-${itemPickedRef.playerPicked}.svg`} alt="scissor-icon" className="ResultComponent-Image" />
+                        </div>
                     </div>
-                </div>
-            </section>
-            <div className="ResultComponent-resultContainer">
+                </section>
+                <section className="ResultComponent-itemContainer">
+
+                    <p>The House</p>
+                    <div onLoad={animateItemOnLoad} id='ResultComponent-enemy' style={{ backgroundColor: enemyColor.bg, boxShadow: enemyColor.bs, zIndex: -1 }} className="ResultComponent-outer">
+                        <div className="ResultComponent-inner">
+                            <img src={`/images/icon-${itemPickedRef.enemyPicked}.svg`} alt="scissor-icon" className="ResultComponent-Image" />
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section className="ResultComponent-resultContainer">
                 <p ref={resultRef} className='ResultComponent-result'>{itemPickedRef.result}</p>
                 <button className='ResultComponent-playAgain'
                     onMouseEnter={() => {
@@ -109,18 +111,7 @@ const ResultComponent = (props) => {
                         props.setState(GameState.Game);
                     }}>Play Again</button>
 
-            </div>
-            <section className="ResultComponent-itemContainer">
-                <p>The House Picked</p>
-                {/* <div className="ResultComponent-temporaryCircle"></div> */}
-                <div onLoad={animateItemOnLoad} id='ResultComponent-enemy' style={{ backgroundColor: enemyColor.bg, boxShadow: enemyColor.bs, zIndex: -1 }} className="ResultComponent-outer">
-                    <div className="ResultComponent-inner">
-                        <img src={`/images/icon-${itemPickedRef.enemyPicked}.svg`} alt="scissor-icon" className="ResultComponent-Image" />
-                    </div>
-                </div>
             </section>
-            <>
-            </>
         </div>
     )
 }

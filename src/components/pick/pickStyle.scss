@@ -9,12 +9,13 @@ $mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
 
 .PickComponent {
 
-    margin-top: 50px;
+    margin-top: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    
     .PickComponent-pickContainer {
+        z-index: 10;
 
         display: flex;
         justify-content: center;
@@ -155,6 +156,12 @@ $mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
     .PickComponent-u-itemClicked:hover {
         box-shadow: inset transparent 0px 0px;
         transform: translateY(6px);
+    }
+}
+
+@media (max-width: 475px) {
+    .PickComponent{
+        margin-top: 100px;
     }
 }
 

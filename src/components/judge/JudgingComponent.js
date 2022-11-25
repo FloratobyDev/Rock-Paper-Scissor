@@ -18,6 +18,7 @@ const JudgingComponent = (props) => {
             bs: 'hsl(230, 89%, 52%) 0 6px'
         },
     }
+
     const [loading, setLoading] = useState(true)
     const enemyPickRef = useRef("")
 
@@ -25,10 +26,6 @@ const JudgingComponent = (props) => {
 
     const playerColor = useRef(keyColorPairs[itemPickedRef.current.playerPicked])
     const enemyColor = useRef('');
-
-    useEffect(() => {
-
-    }, [])
 
     useEffect(() => {
 
@@ -63,9 +60,6 @@ const JudgingComponent = (props) => {
     useEffect(() => {
         let checkingResultsTimeout = undefined
 
-        let itemPicked = itemPickedRef
-
-        // result.current = resultJudge()
         if (!loading) {
             checkingResultsTimeout = setTimeout(() => {
 
@@ -97,23 +91,23 @@ const JudgingComponent = (props) => {
     return (
         <div className='JudgeComponent'>
             <section className="JudgeComponent-itemContainer">
-                <p>You Picked</p>
+                <p>You</p>
                 <div id='player' style={{ backgroundColor: playerColor.current.bg, boxShadow: playerColor.current.bs }} className="JudgeComponent-outer">
 
                     <div className="JudgeComponent-inner">
-                        <img src={`/images/icon-${itemPickedRef.current.playerPicked}.svg`} alt="scissor-icon" className="JudgeComponent-Image" />
+                        <img src={`/images/icon-${itemPickedRef.current.playerPicked}.svg`} alt="player-item-pick-icon" className="JudgeComponent-Image" />
                     </div>
                 </div>
             </section>
 
             <section className="JudgeComponent-itemContainer">
-                <p>The House Picked</p>
+                <p>The House</p>
                 {loading ?
                     <div className="JudgeComponent-temporaryCircle"></div> :
                     <>
                         <div onLoad={animateItemOnLoad} id='enemy' style={{ backgroundColor: enemyColor.current.bg, boxShadow: enemyColor.current.bs }} className="JudgeComponent-outer">
                             <div className="JudgeComponent-inner">
-                                <img src={`/images/icon-${itemPickedRef.current.enemyPicked}.svg`} alt="scissor-icon" className="JudgeComponent-Image" />
+                                <img src={`/images/icon-${itemPickedRef.current.enemyPicked}.svg`} alt="house-pick-icon" className="JudgeComponent-Image" />
                             </div>
                         </div>
                     </>

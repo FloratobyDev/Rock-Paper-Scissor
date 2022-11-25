@@ -1,4 +1,3 @@
-import anime from 'animejs'
 import React from 'react'
 import './scoreStyle.scss'
 

@@ -14,7 +14,7 @@ const RuleComponent = () => {
         }
         else {
             overlayRef.current.style.display = 'none'
-            overlayRef.current.parentElement.style.zIndex = -10
+            overlayRef.current.parentElement.style.zIndex = 0
         }
         console.log('Overlay status :' + overlayRef.current.style.display)
     }
@@ -28,6 +28,7 @@ const RuleComponent = () => {
                         <img onClick={toggleOverlay} className='RuleComponent-close' src="/images/icon-close.svg" alt="icon-close" />
                     </div>
                     <img src="/images/image-rules.svg" alt="" className="RuleComponent-ruleImage" />
+                    <img onClick={toggleOverlay} className='RuleComponent-mobileClose' src="/images/icon-close.svg" alt="icon-close" />
                 </div>
             </div>
             <button onClick={toggleOverlay} className="RuleComponent-overlayButton" alt='overlay-button'>RULES</button>

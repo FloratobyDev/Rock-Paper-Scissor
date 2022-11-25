@@ -52,14 +52,15 @@
 
 @media (max-width: 475px) {
     .ScoreComponent{
-        width: 90%;
+        width: 80%;
+        height: 80%;
         .ScoreComponent-titleImage{
             max-width: 50%;
         }
 
         .ScoreComponent-scoreContainer{
             width: 100px;
-            height: 90%;
+            height: 100px;
         }
     }
 }

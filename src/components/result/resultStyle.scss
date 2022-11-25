@@ -1,7 +1,7 @@
 @import '../colors';
 
 $outer-ring-size : 280px;
-$mobile-outer-ring-size : 100px;
+$mobile-outer-ring-size : 130px;
 
 $offset: calc($outer-ring-size - ($outer-ring-size / 2));
 $mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
@@ -14,28 +14,93 @@ $mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
     width: 100%;
     gap: 4rem;
     column-gap: 3rem;
-    // margin-top: 50px;
+    margin-top: 50px;
 
-    .ResultComponent-Image{
+    .ResultComponent-container{
+        display: flex;
+        flex-direction: row;
+        column-gap: 18rem;
+        .ResultComponent-itemContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+    
+            p {
+    
+                font-family: $primary-font-name;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: white;
+                font-size: 2rem;
+            }
+    
+            .ResultComponent-temporaryCircle {
+                width: 250px;
+                height: 250px;
+                background-color: rgba(52, 52, 52, 0.4);
+                filter: blur(.5);
+                border-radius: 50%;
+            }
+    
+            .ResultComponent-outer {
+                border-radius: 50%;
+                width: $outer-ring-size;
+                height: $outer-ring-size;
+    
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                // box-shadow: inset hsl(230, 89%, 52%) 0px 0px 0 1000px, rgba(255, 255, 255, 0.1) 0px 0px 0 200px,hsl(230, 89%, 70%,.2) 0px 0px 0 300px,hsla(230, 99%, 70%, 0.3) 0px 0px 0 400px;
+    
+                .ResultComponent-inner {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: white;
+                    box-shadow: inset lightgrey 0px 5px;
+                    border-radius: 100%;
+                    width: 75%;
+                    height: 75%;
+                }
+            }
+        }
+
+    }
+
+    .ResultComponent-Image {
         width: 35%;
         height: 40%;
     }
 
-    .ResultComponent-resultContainer{
+    .ResultComponent-resultContainer {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-       
+        position: absolute;
+
         gap: 2rem;
-        .ResultComponent-result{
+
+        .ResultComponent-result {
             text-transform: uppercase;
             font-family: $primary-font-name;
-            color:white;
-            font-size:3.5rem;
+            font-weight: 700;
+            color: white;
+            font-size: 3.5rem;
+
+
+            // font-size: 72px;
+            // background: -webkit-linear-gradient(left,rgba(255, 0, 0, 0.79), rgb(238, 255, 0),rgb(0, 60, 255));
+            // background-clip: text;
+            // -webkit-background-clip: text;
+            // -webkit-text-fill-color: transparent;
+
         }
 
-        .ResultComponent-playAgain{
+        .ResultComponent-playAgain {
             text-transform: uppercase;
             font-family: $primary-font-name;
             font-weight: 600;
@@ -44,63 +109,64 @@ $mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
             border-radius: 9px;
         }
 
-        .ResultComponent-playAgain:hover{
+        .ResultComponent-playAgain:hover {
             cursor: pointer;
             // opacity: 80%;
-            color:red;
+            color: red;
         }
-        
-        .ResultComponent-playAgain:active{
+
+        .ResultComponent-playAgain:active {
             transform: translateY(3px);
         }
     }
-    
-    .ResultComponent-itemContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 4rem;
-        
-        p{
-            font-family: $primary-font-name;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: white;
-            font-size: 1.6rem;
-        }
-        
-        .ResultComponent-temporaryCircle{
-            width: 250px;
-            height: 250px;
-            background-color: rgba(52, 52, 52, 0.4);
-            filter: blur(.5);
-            border-radius: 50%;
-        }
 
-        .ResultComponent-outer {
-            border-radius: 50%;
-            width: $outer-ring-size;
-            height: $outer-ring-size;
-            
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            // box-shadow: inset hsl(230, 89%, 52%) 0px 0px 0 1000px, rgba(255, 255, 255, 0.1) 0px 0px 0 200px,hsl(230, 89%, 70%,.2) 0px 0px 0 300px,hsla(230, 99%, 70%, 0.3) 0px 0px 0 400px;
-            
-            .ResultComponent-inner {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-color: white;
-                box-shadow: inset lightgrey 0px 5px;
-                border-radius: 100%;
-                width: 75%;
-                height: 75%;
-            }
-        }
-    }
 
 }
 
+@media (max-width: 475px) {
+    .ResultComponent{
+        gap: 3rem;
+        margin-top: 50px;
+        // bottom: 50px;
+
+        .ResultComponent-container{
+             gap: 5rem;
+            .ResultComponent-itemContainer{
+                gap: 1.2rem;
+                flex-direction: column-reverse;
+    
+                p{
+                    font-size: 1.2rem;
+                }
+    
+                .ResultComponent-temporaryCircle{
+                    width: 150px;
+                    height:150px;
+                }
+    
+                .ResultComponent-outer{
+                    width: $mobile-outer-ring-size;
+                    height: $mobile-outer-ring-size;
+                }
+            }
+
+        }
+
+
+        .ResultComponent-resultContainer{
+            // position: absolute;
+            top: calc(500px - 5vh);
+            gap: 1rem;
+            .ResultComponent-result{
+                font-size: 2.5rem;
+            }
+            
+            .ResultComponent-playAgain{
+                font-size: 1rem;
+                padding: .6rem 2.6rem;
+                font-size: .7rem;
+            }
+            // top: 2rem;
+        }
+    }
+}

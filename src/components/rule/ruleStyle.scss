@@ -6,9 +6,14 @@
     height: 100vh;
     // bottom: 0;
     // right: 0;
-    z-index: -5;
+    z-index: 2;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // align-items: center;
+    // vertical-align: middle;
     .RuleComponent-overlay{
-    
+        z-index: inherit;
         position: fixed;
         background: rgba(0, 0, 0, 0.7);
         width: 100%;
@@ -35,6 +40,7 @@
                     font-family: $primary-font-name;
                     font-weight: 700;
                     font-size: 1.8rem;
+                    color: $header-outline;
                 }
     
                 .RuleComponent-close{
@@ -52,13 +58,21 @@
             .RuleComponent-ruleImage{
 
             }
+
+            .RuleComponent-mobileClose{
+                display: none;
+                align-self: center;
+                cursor: pointer;
+                max-width: 20px;
+                max-height: 20px;
+            }
         }
 
     }
 
     .RuleComponent-overlayButton{
         cursor: pointer;
-        z-index: -1;
+        // z-index: 0;
         position: absolute;
         bottom: 0;
         right: 0;
@@ -76,5 +90,34 @@
     }
     .RuleComponent-overlayButton:active{
         opacity: 80%;
+    }
+}
+
+@media (max-width: 475px) {
+    .RuleComponent{
+        .RuleComponent-overlay{
+            .RuleComponent-ruleContainer{
+                row-gap: calc(3rem + 10vh);
+                height: 100%;
+                width: 100%;
+                padding-top: 100px;
+
+                .RuleComponent-nameCloseContainer{
+                    justify-content: center;
+                 
+                    .RuleComponent-close{
+                        display: none;
+                    }
+                }
+                .RuleComponent-mobileClose{
+                    display: block;
+                }
+            }
+
+        }
+
+        .RuleComponent-overlayButton{
+            right: 30%;
+        }
     }
 }
