@@ -15,6 +15,7 @@ $mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
     gap: 4rem;
     column-gap: 3rem;
     margin-top: 50px;
+    z-index: 10;
 
     .ResultComponent-container{
         display: flex;
@@ -107,6 +108,7 @@ $mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
             font-size: .9rem;
             padding: .6rem 2.1rem;
             border-radius: 9px;
+            z-index: 11;
         }
 
         .ResultComponent-playAgain:hover {
@@ -128,6 +130,7 @@ $mobile-offset: calc($mobile-outer-ring-size - ($mobile-outer-ring-size / 2));
         gap: 3rem;
         margin-top: 50px;
         // bottom: 50px;
+        z-index: 20;
 
         .ResultComponent-container{
              gap: 5rem;

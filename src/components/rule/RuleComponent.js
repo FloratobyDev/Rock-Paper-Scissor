@@ -7,6 +7,7 @@ const RuleComponent = () => {
     const overlayRef = useRef(null)
 
     const toggleOverlay = event => {
+        console.log('Running')
         toggleRef.current = !toggleRef.current
         if (toggleRef.current) {
             overlayRef.current.style.display = 'flex'
